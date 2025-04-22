@@ -8,13 +8,12 @@ import (
 
 var webCmd = &cobra.Command{
 	Use:   "web",
-	Short: "A brief description of your command",
+	Short: "Run DIB in WEB format",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("web called")
+		fmt.Println("TODO")
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(webCmd)
-
 }

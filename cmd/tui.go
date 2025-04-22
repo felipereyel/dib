@@ -8,9 +8,10 @@ import (
 
 var tuiCmd = &cobra.Command{
 	Use:   "tui",
-	Short: "A brief description of your command",
+	Short: "Run DIB in tui format for CSV file",
+	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("tui called")
+		fmt.Println(args[0])
 	},
 }
 
