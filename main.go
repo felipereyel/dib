@@ -1,6 +1,8 @@
 package main
 
-import "dib/cmd"
+import (
+	"goth/internal/cmd"
+)
 
 func main() {
 	cmd.Execute()

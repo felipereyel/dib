@@ -15,7 +15,8 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-__tests
+# vendor/
+
 # Go workspace file
 go.work
 
@@ -24,7 +25,6 @@ go.work
 
 # Database
 db.sqlite3
-db.sqlite
 
 # Air
 tmp
@@ -33,7 +33,4 @@ tmp
 internal/components/*.go
 
 # js
-*.js
-
-# main builds
-main
+internal/components/embeded/statics/*.js
