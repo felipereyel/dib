@@ -1,8 +1,8 @@
 package routes
 
 import (
+	"dib/internal/components"
 	"fmt"
-	"goth/internal/components"
 
 	"github.com/gofiber/fiber/v2"
 )

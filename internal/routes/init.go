@@ -1,11 +1,11 @@
 package routes
 
 import (
+	"dib/internal/config"
+	"dib/internal/controllers"
+	"dib/internal/repositories/database"
+	"dib/internal/repositories/jwt"
 	"fmt"
-	"goth/internal/config"
-	"goth/internal/controllers"
-	"goth/internal/repositories/database"
-	"goth/internal/repositories/jwt"
 
 	"github.com/gofiber/fiber/v2"
 )

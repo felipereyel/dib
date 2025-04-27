@@ -1,9 +1,9 @@
 package routes
 
 import (
-	"goth/internal/components"
-	"goth/internal/controllers"
-	"goth/internal/models"
+	"dib/internal/components"
+	"dib/internal/controllers"
+	"dib/internal/models"
 
 	"github.com/gofiber/fiber/v2"
 )

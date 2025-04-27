@@ -1,15 +1,15 @@
 package cmd
 
 import (
-	"goth/internal/cmd/migrate"
-	"goth/internal/cmd/server"
+	"dib/internal/cmd/migrate"
+	"dib/internal/cmd/server"
 
 	"github.com/spf13/cobra"
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "goth",
-	Short: "goth app CLI",
+	Use:   "dib",
+	Short: "dib app CLI",
 }
 
 var serveCmd = &cobra.Command{

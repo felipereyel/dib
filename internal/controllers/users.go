@@ -1,11 +1,11 @@
 package controllers
 
 import (
+	"dib/internal/models"
+	"dib/internal/repositories/database"
+	"dib/internal/repositories/jwt"
+	"dib/internal/utils"
 	"errors"
-	"goth/internal/models"
-	"goth/internal/repositories/database"
-	"goth/internal/repositories/jwt"
-	"goth/internal/utils"
 	"time"
 
 	"github.com/gofiber/fiber/v2"

@@ -2,8 +2,8 @@ package database
 
 import (
 	"database/sql"
+	"dib/internal/models"
 	"fmt"
-	"goth/internal/models"
 
 	_ "modernc.org/sqlite"
 )

@@ -1,9 +1,9 @@
 package migrate
 
 import (
+	"dib/internal/config"
+	"dib/internal/embeded"
 	"fmt"
-	"goth/internal/config"
-	"goth/internal/embeded"
 	"strconv"
 
 	"github.com/golang-migrate/migrate/v4"

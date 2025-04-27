@@ -1,15 +1,15 @@
 package routes
 
 import (
-	"goth/internal/components"
-	"goth/internal/controllers"
-	"goth/internal/models"
-	"goth/internal/utils"
+	"dib/internal/components"
+	"dib/internal/controllers"
+	"dib/internal/models"
+	"dib/internal/utils"
 
 	"github.com/gofiber/fiber/v2"
 )
 
-const cookieName = "goth:jwt"
+const cookieName = "dib:jwt"
 
 func withAuth[C controllers.Controllers](uController *controllers.UserController, controller *C, handler func(*C, *fiber.Ctx, models.User) error) fiber.Handler {
 	return func(ctx *fiber.Ctx) error {

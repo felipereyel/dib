@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"database/sql"
-	"goth/internal/models"
-	"goth/internal/repositories/database"
+	"dib/internal/models"
+	"dib/internal/repositories/database"
 
 	"github.com/gofiber/fiber/v2"
 )

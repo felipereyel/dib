@@ -1,4 +1,4 @@
-# goth oidc
+# dib oidc
 
 ## Components
 - Go + Fiber

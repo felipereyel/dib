@@ -1,7 +1,7 @@
 package main
 
 import (
-	"goth/internal/cmd"
+	"dib/internal/cmd"
 )
 
 func main() {
