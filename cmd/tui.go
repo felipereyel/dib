@@ -1,7 +1,8 @@
 package cmd
 
 import (
-	"fmt"
+	"dib/internal/tui"
+	"log"
 
 	"github.com/spf13/cobra"
 )
@@ -11,7 +12,13 @@ var tuiCmd = &cobra.Command{
 	Short: "Run DIB in tui format for CSV file",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(args[0])
+		if len(args) != 1 {
+			log.Fatal("Bad Args")
+		}
+
+		if err := tui.Tui(args[0]); err != nil {
+			log.Fatal("Tui Error", err.Error())
+		}
 	},
 }
 
