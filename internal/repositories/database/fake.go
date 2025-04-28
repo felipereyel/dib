@@ -8,12 +8,12 @@ import (
 )
 
 type fakeDatabase struct {
-	tasks map[string]models.Task
+	playlists map[string]models.Playlist
 }
 
 func NewFakeDatabaseRepo() (Database, error) {
 	return &fakeDatabase{
-		tasks: make(map[string]models.Task),
+		playlists: make(map[string]models.Playlist),
 	}, nil
 }
 
@@ -21,36 +21,36 @@ func (db *fakeDatabase) Close() error {
 	return nil
 }
 
-func (db *fakeDatabase) CreateTask(task models.Task) error {
-	db.tasks[task.Id] = task
+func (db *fakeDatabase) CreatePlaylist(playlist models.Playlist) error {
+	db.playlists[playlist.Id] = playlist
 	return nil
 }
 
-func (db *fakeDatabase) ListTasks() ([]models.Task, error) {
-	tasks := make([]models.Task, 0)
+func (db *fakeDatabase) ListPlaylists() ([]models.Playlist, error) {
+	playlists := make([]models.Playlist, 0)
 
-	for _, task := range db.tasks {
-		tasks = append(tasks, task)
+	for _, playlist := range db.playlists {
+		playlists = append(playlists, playlist)
 	}
 
-	return tasks, nil
+	return playlists, nil
 }
 
-func (db *fakeDatabase) RetrieveTaskById(taskId string) (models.Task, error) {
-	task, ok := db.tasks[taskId]
+func (db *fakeDatabase) RetrievePlaylistById(playlistId string) (models.Playlist, error) {
+	playlist, ok := db.playlists[playlistId]
 	if !ok {
-		return models.EmptyTask, sql.ErrNoRows
+		return models.EmptyPlaylist, sql.ErrNoRows
 	}
 
-	return task, nil
+	return playlist, nil
 }
 
-func (db *fakeDatabase) DeleteTask(taskId string) error {
-	delete(db.tasks, taskId)
+func (db *fakeDatabase) DeletePlaylist(playlistId string) error {
+	delete(db.playlists, playlistId)
 	return nil
 }
 
-func (db *fakeDatabase) UpdateTask(task models.Task) error {
-	db.tasks[task.Id] = task
+func (db *fakeDatabase) UpdatePlaylist(playlist models.Playlist) error {
+	db.playlists[playlist.Id] = playlist
 	return nil
 }

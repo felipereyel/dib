@@ -15,57 +15,55 @@ func NewDatabaseRepo(app core.App) database {
 	return database{app}
 }
 
-func (db *database) CreateTask(task models.Task) error {
-	query := `INSERT INTO tasks (id, title, description) VALUES ({:Id}, {:Title}, {:Description})`
+func (db *database) CreatePlaylist(playlist models.Playlist) error {
+	query := `INSERT INTO playlists (id, name) VALUES ({:Id}, {:Name})`
 	q := db.app.DB().NewQuery(query).Bind(dbx.Params{
-		"Id":          task.Id,
-		"Title":       task.Title,
-		"Description": task.Description,
+		"Id":   playlist.Id,
+		"Name": playlist.Name,
 	})
 
 	_, err := q.Execute()
 	return err
 }
 
-func (db *database) ListTasks() ([]models.Task, error) {
-	query := `SELECT id, title, description FROM tasks`
+func (db *database) ListPlaylists() ([]models.Playlist, error) {
+	query := `SELECT id, name FROM playlists`
 	q := db.app.DB().NewQuery(query)
 
-	tasks := make([]models.Task, 0)
-	if err := q.All(&tasks); err != nil {
+	playlists := make([]models.Playlist, 0)
+	if err := q.All(&playlists); err != nil {
 		return nil, err
 	}
 
-	return tasks, nil
+	return playlists, nil
 }
 
-func (db *database) RetrieveTaskById(taskId string) (models.Task, error) {
-	query := `SELECT id, title, description FROM tasks WHERE id = {:Id}`
+func (db *database) RetrievePlaylistById(playlistId string) (models.Playlist, error) {
+	query := `SELECT id, name FROM playlists WHERE id = {:Id}`
 	q := db.app.DB().NewQuery(query).Bind(dbx.Params{
-		"Id": taskId,
+		"Id": playlistId,
 	})
 
-	var task models.Task
-	err := q.One(&task)
-	return task, err
+	var playlist models.Playlist
+	err := q.One(&playlist)
+	return playlist, err
 }
 
-func (db *database) DeleteTask(taskId string) error {
-	query := `DELETE FROM tasks WHERE id = {:Id}`
+func (db *database) DeletePlaylist(playlistId string) error {
+	query := `DELETE FROM playlists WHERE id = {:Id}`
 	q := db.app.DB().NewQuery(query).Bind(dbx.Params{
-		"Id": taskId,
+		"Id": playlistId,
 	})
 
 	_, err := q.Execute()
 	return err
 }
 
-func (db *database) UpdateTask(task models.Task) error {
-	query := `UPDATE tasks SET title = {:Title}, description = {:Description} WHERE id = {:Id}`
+func (db *database) UpdatePlaylist(playlist models.Playlist) error {
+	query := `UPDATE playlists SET name = {:Name} WHERE id = {:Id}`
 	q := db.app.DB().NewQuery(query).Bind(dbx.Params{
-		"Id":          task.Id,
-		"Title":       task.Title,
-		"Description": task.Description,
+		"Id":   playlist.Id,
+		"Name": playlist.Name,
 	})
 
 	_, err := q.Execute()

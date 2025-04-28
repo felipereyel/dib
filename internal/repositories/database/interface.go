@@ -9,9 +9,9 @@ import (
 type Database interface {
 	Close() error
 
-	CreateTask(task models.Task) error
-	RetrieveTaskById(taskId string) (models.Task, error)
-	UpdateTask(task models.Task) error
-	DeleteTask(taskId string) error
-	ListTasks() ([]models.Task, error)
+	CreatePlaylist(playlist models.Playlist) error
+	RetrievePlaylistById(playlistId string) (models.Playlist, error)
+	UpdatePlaylist(playlist models.Playlist) error
+	DeletePlaylist(playlistId string) error
+	ListPlaylists() ([]models.Playlist, error)
 }

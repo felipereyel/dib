@@ -15,10 +15,10 @@ func healthzHandler(e *core.RequestEvent) error {
 }
 
 func SetupRoutes(se *core.ServeEvent) error {
-	se.Router.GET("/", taskList)
-	se.Router.GET("/new", taskNew)
-	se.Router.GET("/edit/{id}", taskEdit)
-	se.Router.POST("/edit/{id}", taskSave)
+	se.Router.GET("/", playlistList)
+	se.Router.GET("/new", playlistNew)
+	se.Router.GET("/edit/{id}", playlistEdit)
+	se.Router.POST("/edit/{id}", playlistSave)
 
 	se.Router.GET("/healthz", healthzHandler)
 	se.Router.GET("/statics/{path...}", assetsHandler)

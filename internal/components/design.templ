@@ -74,41 +74,37 @@ templ headedPage(title string, breadcrumb, description string) {
     }
 }
 
-// Tasks Views
+// Playlists Views
 
-templ TaskListPage(tasks []models.Task) {
-    @headedPage("Tasks List", "Tasks", "Open Tasks To Do") {
+templ PlaylistListPage(playlists []models.Playlist) {
+    @headedPage("Playlists List", "Playlists", "Open Playlists To Do") {
         <div>
             <ul id="wrapper" class="border border-slate-600 rounded overflow-hidden shadow-md">
-                if len(tasks) > 0 {
-                    for _, task := range tasks {
+                if len(playlists) > 0 {
+                    for _, playlist := range playlists {
                         <li class="px-4 py-2 bg-slate-800 hover:bg-sky-100 hover:text-sky-900 border-b last:border-none border-slate-600 transition-all duration-300 ease-in-out">
-                            <a href={ templ.URL("/edit/" + task.Id) }>{task.Title}</a>
+                            <a href={ templ.URL("/edit/" + playlist.Id) }>{playlist.Name}</a>
                         </li>
                     }
                 } else {
                     <li class="px-4 py-2 border border-slate-600 border-dashed rounded overflow-hidden shadow-md">
-                        <span>No Tasks</span>
+                        <span>No Playlists</span>
                     </li>
                 }
             </ul>
             <div class="mt-4 text-center px-4 py-2 bg-blue-600 hover:bg-sky-100 hover:text-sky-900 border border-slate-600 rounded overflow-hidden shadow-md">
-                <a href={ templ.URL("/new") }>Create New Task</a>
+                <a href={ templ.URL("/new") }>Create New Playlist</a>
             </div>
         </div>
     }
 }
 
-templ TaskEditPage(task models.Task) {
-    @headedPage("Task Editor", fmt.Sprintf("Tasks > %s", task.Title), "Edit this task") {
+templ PlaylistEditPage(playlist models.Playlist) {
+    @headedPage("Playlist Editor", fmt.Sprintf("Playlists > %s", playlist.Name), "Edit this playlist") {
         <div>
             <div class="flex flex-col">
-                <label for="title" class="text-xs mb-1">Title</label>
-                <input hx-post={"/edit/" + task.Id} type="text" name="title" id="title" value={ task.Title } class="bg-slate-800 border border-slate-600 rounded px-2 py-1 mb-4" />
-            </div>
-            <div class="flex flex-col">
-                <label for="description" class="text-xs mb-1">Description</label>
-                <textarea hx-post={"/edit/" + task.Id} name="description" id="description" class="bg-slate-800 border border-slate-600 rounded px-2 py-1 mb-4">{ task.Description }</textarea>
+                <label for="name" class="text-xs mb-1">Name</label>
+                <input hx-post={"/edit/" + playlist.Id} type="text" name="name" id="name" value={ playlist.Name } class="bg-slate-800 border border-slate-600 rounded px-2 py-1 mb-4" />
             </div>
         </div>
     }
